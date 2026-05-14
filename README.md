@@ -30,10 +30,10 @@ El proyecto deberá utilizar:
 
 ## Crear el proyecto
 
-Para crear el proyecto se puede utilizar el siguiente comando:
+Clonar este proyecto y cambiarle la url de remote:
 
 ```bash
-npx create-next-app@latest tp-tmdb-next
+git remote set-url origin [URL] .git
 ```
 
 Durante la instalación se puede elegir la configuración vista en clase.
@@ -44,16 +44,22 @@ Luego ingresar a la carpeta del proyecto:
 cd tp-tmdb-next
 ```
 
+Instalar dependencias
+
+```bash
+yarn
+```
+
 Instalar Axios:
 
 ```bash
-npm install axios
+yarn add axios
 ```
 
 Ejecutar el proyecto:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ---
