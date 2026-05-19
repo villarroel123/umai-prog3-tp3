@@ -1,4 +1,4 @@
-# TP4: App de Películas y Series con Next.js y TMDB
+# TP3: App de Películas y Series con Next.js y TMDB
 
 ## Objetivo
 
@@ -557,12 +557,6 @@ Ruta sugerida:
 src/app/movie/[id]/page.jsx
 ```
 
-o, si se usa TypeScript:
-
-```txt
-src/app/movie/[id]/page.tsx
-```
-
 El endpoint a consultar será:
 
 ```txt
@@ -767,6 +761,7 @@ La entrega deberá incluir:
 - Archivo `README.md` con explicación del proyecto.
 - Instrucciones para instalar y ejecutar la app.
 - Explicación breve de los endpoints utilizados.
+- Apartado de consentimiento de uso de IA
 
 ---
 
@@ -782,6 +777,7 @@ Instrucciones de instalación
 Instrucciones para ejecutar el proyecto
 Endpoints utilizados
 Capturas de pantalla
+Declaración de uso de IA
 ```
 
 Ejemplo de comandos para el README:
