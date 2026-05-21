@@ -1,15 +1,15 @@
 'use client'
+import CardsGrid from '@/components/CardsGrid'
 import axios from 'axios';
 import {useState, useEffect} from "react";
 
-
 const HomeContainer =()=>{
     const [error, setError]= useState (false);
-    const [tendencias, setTendencias]=([]);
-    const [populares, setPopulares]=([]);
-    const [mejorPunteadas, setMejorPunteadas]=([]);
-    const [cartelera, setCartelera]=([]);
-    const [proxExtrenos, setProxExtrenos]=([]);
+    const [tendencias, setTendencias]=useState([]);
+    const [populares, setPopulares]=useState([]);
+    const [mejorPunteadas, setMejorPunteadas]=useState([]);
+    const [cartelera, setCartelera]=useState([]);
+    const [proxEstrenos, setProxEstrenos]=useState([]);
 
     const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
@@ -36,7 +36,7 @@ const HomeContainer =()=>{
             setPopulares(resPopulares.data.results);
             setMejorPunteadas(resMejorPunteadas.data.results);
             setCartelera(resCartelera.data.results);
-            setProxExtrenos(resProxEstrenos.data.results);
+            setProxEstrenos(resProxEstrenos.data.results);
 
             } catch(error){
                 console.log('Hubo un error', error)
@@ -51,10 +51,23 @@ const HomeContainer =()=>{
         
         return(
             <div>
-
+                <section>
+                    <CardsGrid items={tendencias} titulo="Peliculas en tendencia"/>
+                </section>
+                <section>
+                    <CardsGrid items={populares} titulo="Peliculas populares"/>
+                </section>
+                <section>
+                    <CardsGrid items={mejorPunteadas} titulo="Peliculas mejor punteadas"/>
+                </section>
+                <section>
+                    <CardsGrid items={cartelera} titulo="Peliculas en cartelera"/>
+                </section>
+                <section>
+                    <CardsGrid items={proxEstrenos} titulo="Proximos estrenos"/>
+                </section>
             </div>
         )
-
     }
 export default HomeContainer;
 
