@@ -2,6 +2,7 @@ import { Unbounded, Lexend, Rubik } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
       <body className={`${unbounded.variable} ${lexend.variable} ${rubik.variable} min-h-full flex flex-col`}>
         <NavBar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

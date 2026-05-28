@@ -6,26 +6,32 @@ import React from 'react'
 const  MovieCard=({title, poster_path,id, vote_average,release_date})=>{
     return(
         <article className=''>
-            <div className='max-w-sm overflow-hidden rounded-xl shadow-lg relative group hover:scale-101 transition-transform duration-200' >
+            <div className='max-w-sm overflow-hidden  shadow-lg relative group hover:scale-101 transition-transform duration-200' >
                     <Image 
                         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                         width={0}
                         height={0} 
                         alt={title}
                         sizes="50vw"
-                        className="w-full h-auto object-cover"
+                        className="w-full h-auto object-cover rounded-xl"
                         priority
                     /> 
-                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center">
+                    <div className="inset-0 flex flex-col  items-start pt-2">
                         <h4 className='text-lg font-lexend text-white'>
                         {title}
-                    </h4>
-                    <p className='text-lg font-lexend text-white'> Fecha de publicación: {release_date}</p>
-                    <p className='text-lg font-lexend text-white'>Puntuación: {vote_average}</p>
-                        <Link href={`/movie/${id}`}className="text-[#D90677] font-lexend font-semibold px-5 py-2 rounded-lg hover:scale-105 transition-transform duration-200 text-sm shadow-md "
-                        >
-                        See more
-                        </Link>
+                        </h4>
+                        <p className='text-sm font-rubik font-light text-white'> {release_date}</p>
+                        <div className='flex justify-between w-full'>
+                            <div className='flex'>
+                                <i className="fa-solid fa-star mr-1 text-[#FFC62B]"></i>
+                                <p className='text-sm font-rubik text-white font-light'> {vote_average}</p>
+                            </div>
+                            <Link href={`/movie/${id}`}className="text-[#D90677] font-lexend rounded-lg hover:scale-105 transition-transform duration-200 text-sm shadow-md font-light"
+                            >
+                            See more
+                            </Link>
+                        </div>
+                        
                     </div>   
                 </div>
  

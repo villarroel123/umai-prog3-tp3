@@ -40,7 +40,7 @@ const NavBar=()=>{
                 </div>
                 <nav className='flex justify-between items-center '>
                     <button className='text-white md:hidden'>
-                        <i class="fa-solid fa-bars"></i>
+                        <i className="fa-solid fa-bars"></i>
                     </button>
                     <ul className="flex gap-6 text-white font-lexend font-light hidden md:flex">
                         {items.map((item, index) => (

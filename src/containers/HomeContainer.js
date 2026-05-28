@@ -6,6 +6,9 @@ import {useState, useEffect} from "react";
 
 const HomeContainer =()=>{
     const [error, setError]= useState (false);
+    const [loading, setLoading] = useState(true);
+    const [notFound, setNotFound] = useState(false);
+
     const [tendencias, setTendencias]=useState([]);
     const [populares, setPopulares]=useState([]);
     const [mejorPunteadas, setMejorPunteadas]=useState([]);
@@ -39,9 +42,12 @@ const HomeContainer =()=>{
             setCartelera(resCartelera.data.results);
             setProxEstrenos(resProxEstrenos.data.results);
 
+            setLoading(false);
+
             } catch(error){
                 console.log('Hubo un error', error)
                 setError(true);
+                setNotFound(true);
             }
         };
 
@@ -50,9 +56,23 @@ const HomeContainer =()=>{
             handleGetItems();
         },[]);
         return(
-            <div>
+            <div className='bg-[#150320] min-h-screen'>
                 <Hero/>
-                <div className='bg-[#150320] min-h-screen flex items-center justify-center'>
+                {notFound && (
+                    <div className='w-full flex items-center justify-center'>
+                        <div className='w-4/5'>
+                            <h2 className='text-white pt-5 font-lexend'>NOT FOUND</h2>
+                        </div> 
+                    </div>
+                )}
+                  {loading && (
+                        <div className='w-full flex items-center justify-center'>
+                            <div className='w-4/5'>
+                                <p className='text-white pt-5 font-lexend'>Loading movie..</p>
+                            </div>
+                        </div>
+                    )}
+                {!loading &&  <div className='bg-[#150320] min-h-screen flex items-center justify-center'>
                     <div className='w-4/5 py-10'>
                         <section className='mb-6' id='trending'>
                         <h3 className='text-xl text-white font-lexend font-light mb-4'>Trending Movies</h3>
@@ -75,7 +95,7 @@ const HomeContainer =()=>{
                             <CardsGrid items={proxEstrenos} titulo="Proximos estrenos"/>
                         </section>
                     </div> 
-                </div>
+                </div>}
             </div>
             
         )
