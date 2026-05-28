@@ -1,5 +1,6 @@
 'use client'
 import CardsGrid from '@/components/CardsGrid'
+import Hero from '@/components/Hero';
 import axios from 'axios';
 import {useState, useEffect} from "react";
 
@@ -48,25 +49,35 @@ const HomeContainer =()=>{
             // eslint-disable-next-line react-hooks/set-state-in-effect
             handleGetItems();
         },[]);
-        
         return(
             <div>
-                <section>
-                    <CardsGrid items={tendencias} titulo="Peliculas en tendencia"/>
-                </section>
-                <section>
-                    <CardsGrid items={populares} titulo="Peliculas populares"/>
-                </section>
-                <section>
-                    <CardsGrid items={mejorPunteadas} titulo="Peliculas mejor punteadas"/>
-                </section>
-                <section>
-                    <CardsGrid items={cartelera} titulo="Peliculas en cartelera"/>
-                </section>
-                <section>
-                    <CardsGrid items={proxEstrenos} titulo="Proximos estrenos"/>
-                </section>
+                <Hero/>
+                <div className='bg-[#150320] min-h-screen flex items-center justify-center'>
+                    <div className='w-4/5 py-10'>
+                        <section className='mb-6' id='trending'>
+                        <h3 className='text-xl text-white font-lexend font-light mb-4'>Trending Movies</h3>
+                        <CardsGrid items={tendencias} titulo="Peliculas en tendencia"/>
+                        </section>
+                        <section className='mb-6' id='popular'>
+                            <h3 className='text-xl text-white font-lexend mb-4 font-light'>Popular Movies</h3>
+                            <CardsGrid items={populares} titulo="Peliculas populares"/>
+                        </section>
+                        <section className='mb-6' id='top-rated'>
+                            <h3 className='text-xl text-white font-lexend mb-4 font-light'>Top Rated Movies</h3>
+                            <CardsGrid items={mejorPunteadas} titulo="Peliculas mejor punteadas"/>
+                        </section>
+                        <section className='mb-6' id='now-playing'>
+                            <h3 className='text-xl font-light text-white font-lexend mb-4'>Now Playing Movies</h3>
+                            <CardsGrid items={cartelera} titulo="Peliculas en cartelera"/>
+                        </section>
+                        <section className='mb-6' id='upcoming'>
+                            <h3 className='text-xl font-light text-white font-lexend mb-4'>Upcoming Movies</h3>
+                            <CardsGrid items={proxEstrenos} titulo="Proximos estrenos"/>
+                        </section>
+                    </div> 
+                </div>
             </div>
+            
         )
     }
 export default HomeContainer;
